@@ -31,11 +31,15 @@ export const login = (email: string, password: string) =>
   api.post("/auth/login", { email, password });
 
 // Files
-export const uploadFile = (file: File, folderId?: string) => {
-  const formData = new FormData();
-  formData.append("file", file);
-  return api.post(`/files/upload${folderId ? `?folder_id=${folderId}` : ""}`, formData);
-};
+export const uploadFile = (file: File, folderId?: string, onProgress?: (pct: number) => void) => {
+  const formData = new FormData()
+  formData.append("file", file)
+  return api.post(`/files/upload${folderId ? `?folder_id=${folderId}` : ""}`, formData, {
+    onUploadProgress: (e) => {
+      if (e.total) onProgress?.(Math.round((e.loaded * 100) / e.total))
+    },
+  })
+}
 
 export const listFiles = () => api.get("/files/");
 export const deleteFile = (fileId: string) => api.delete(`/files/${fileId}`);
