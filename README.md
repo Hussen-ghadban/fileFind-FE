@@ -6,6 +6,10 @@ React and Next.js frontend for the FileFind project.
 
 This frontend is built with Next.js 16, React 19, and shadcn/ui components. It provides a dashboard-style interface for searching indexed files, managing folders, and interacting with the FileFind backend.
 
+## Related Projects
+
+- Backend (FastAPI): [fileFind-BE](https://github.com/Hussen-ghadban/fileFind-BE)
+
 ## Features
 
 - File search UI
@@ -18,13 +22,11 @@ This frontend is built with Next.js 16, React 19, and shadcn/ui components. It p
 ## Setup
 
 1. Install dependencies:
-
 ```bash
 npm install
 ```
 
 2. Start the development server:
-
 ```bash
 npm run dev
 ```
@@ -34,13 +36,11 @@ npm run dev
 ## Build
 
 Create a production build:
-
 ```bash
 npm run build
 ```
 
 Start the production server:
-
 ```bash
 npm run start
 ```
